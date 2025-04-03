@@ -6,7 +6,8 @@
     <title>Budget Planner</title>
     <style>
         body { font-family: Arial, sans-serif; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .tables-container { display: flex; justify-content: space-between; gap: 20px; }
+        table { width: 50%; border-collapse: collapse; margin-top: 20px; }
         th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
         th { background-color: #f4f4f4; }
         input { width: 100%; border: none; background: transparent; }
@@ -17,64 +18,70 @@
 <body>
     <h1>PCIS College Budget Planner</h1>
     
-    <h2>Typical Expenses</h2>
-    <table id="typicalExpenses">
-        <thead>
-            <tr>
-                <th>Category</th>
-                <th>Amount ($)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr><td>Rent or dorm fee (25-30%)</td><td>$500.00</td></tr>
-            <tr><td>Groceries (10-15%)</td><td>$250.00</td></tr>
-            <tr><td>Loan Repayments (10-15%)</td><td>$250.00</td></tr>
-            <tr><td>Car loan payment (5.5%)</td><td>$125.00</td></tr>
-            <tr><td>Entertainment (5%)</td><td>$100.00</td></tr>
-            <tr><td>Transportation (5%)</td><td>$100.00</td></tr>
-            <tr><td>Textbooks and other class supplies (4%)</td><td>$70.00</td></tr>
-            <tr><td>Cell phone (3%)</td><td>$60.00</td></tr>
-            <tr><td>Cable and Internet (2.5%)</td><td>$50.00</td></tr>
-            <tr><td>Car insurance (2.5%)</td><td>$50.00</td></tr>
-            <tr><td>Savings (2.5%)</td><td>$50.00</td></tr>
-            <tr><td>Dining Out (2.5%)</td><td>$50.00</td></tr>
-            <tr><td>Clothing (2.5%)</td><td>$50.00</td></tr>
-            <tr><td>Car maintenance and repairs (2%)</td><td>$40.00</td></tr>
-            <tr><td>Medical (2%)</td><td>$40.00</td></tr>
-            <tr><td>Electricity (2%)</td><td>$35.00</td></tr>
-            <tr><td>Credit card monthly payment (1.5%)</td><td>$25.00</td></tr>
-            <tr><td>Gas and water (1%)</td><td>$22.00</td></tr>
-            <tr><td>Parking fee (0.5%)</td><td>$7.00</td></tr>
-        </tbody>
-        <tfoot>
-            <tr class="bold-row">
-                <td><strong>Total Typical Expenses:</strong></td>
-                <td><strong>$1874.00</strong></td>
-            </tr>
-        </tfoot>
-    </table>
-    
     <h2>Your Monthly Income</h2>
     <label for="income">Enter Your Monthly Income: </label>
     <input type="number" id="income" placeholder="Enter income" oninput="calculateBreakdown()">
     
-    <h2>Your Monthly Expenses</h2>
-    <table id="userExpenses">
-        <thead>
-            <tr>
-                <th>Category</th>
-                <th>Amount ($)</th>
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
-        <tfoot>
-            <tr class="bold-row">
-                <td><strong>Total Spent</strong></td>
-                <td id="totalSpent">$0.00</td>
-            </tr>
-        </tfoot>
-    </table>
+    <div class="tables-container">
+        <div>
+            <h2>Typical Expenses</h2>
+            <table id="typicalExpenses">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Amount ($)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Rent or dorm fee (35-40%)</td><td>$500.00</td></tr>
+                    <tr><td>Groceries (20%)</td><td>$250.00</td></tr>
+                    <tr><td>Loan Repayments (20%)</td><td>$250.00</td></tr>
+                    <tr><td>Car loan payment (10%)</td><td>$125.00</td></tr>
+                    <tr><td>Entertainment (7.5%)</td><td>$100.00</td></tr>
+                    <tr><td>Transportation (7.5%)</td><td>$100.00</td></tr>
+                    <tr><td>Textbooks and other class supplies (5%)</td><td>$70.00</td></tr>
+                    <tr><td>Cell phone (4.5%)</td><td>$60.00</td></tr>
+                    <tr><td>Cable and Internet (4%)</td><td>$50.00</td></tr>
+                    <tr><td>Car insurance (4%)</td><td>$50.00</td></tr>
+                    <tr><td>Savings (4%)</td><td>$50.00</td></tr>
+                    <tr><td>Dining Out (4%)</td><td>$50.00</td></tr>
+                    <tr><td>Clothing (4%)</td><td>$50.00</td></tr>
+                    <tr><td>Car maintenance and repairs (3%)</td><td>$40.00</td></tr>
+                    <tr><td>Medical (3%)</td><td>$40.00</td></tr>
+                    <tr><td>Electricity (2.5%)</td><td>$35.00</td></tr>
+                    <tr><td>Credit card monthly payment (2%)</td><td>$25.00</td></tr>
+                    <tr><td>Gas and water (2%)</td><td>$22.00</td></tr>
+                    <tr><td>Parking fee (0.5%)</td><td>$7.00</td></tr>
+                </tbody>
+                <tfoot>
+                    <tr class="bold-row">
+                        <td><strong>Total Typical Expenses:</strong></td>
+                        <td><strong>$1874.00</strong></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        
+        <div>
+            <h2>Your Monthly Expenses</h2>
+            <table id="userExpenses">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Amount ($)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+                <tfoot>
+                    <tr class="bold-row">
+                        <td><strong>Total Spent</strong></td>
+                        <td id="totalSpent">$0.00</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
     
     <h2>Spending Breakdown</h2>
     <table id="spendingBreakdown">
