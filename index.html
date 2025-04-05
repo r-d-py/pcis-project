@@ -21,8 +21,11 @@
             gap: 20px;
             margin-top: 20px;
         }
-        table {
+        .table-wrapper {
             width: 48%;
+        }
+        table {
+            width: 100%;
             border-collapse: collapse;
             background: white;
             border-radius: 10px;
@@ -64,7 +67,7 @@
             border-top: 1px solid #ccc;
             font-size: 0.9em;
             color: #666;
-            text-align: center; /* Center the footer text */
+            text-align: center;
         }
     </style>
 </head>
@@ -76,66 +79,72 @@
     <input type="number" id="income" placeholder="Enter income" oninput="updateCalculations()">
 
     <div class="tables-container">
-        <table id="typicalExpenses">
-            <thead>
-                <tr><th>Category</th><th>Amount ($)</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>Rent or dorm fee (25-30%)</td><td>$500.00</td></tr>
-                <tr><td>Groceries (10-15%)</td><td>$250.00</td></tr>
-                <tr><td>Loan Repayments (10-15%)</td><td>$250.00</td></tr>
-                <tr><td>Car loan payment (5-10%)</td><td>$125.00</td></tr>
-                <tr><td>Entertainment (5%)</td><td>$100.00</td></tr>
-                <tr><td>Transportation (5%)</td><td>$100.00</td></tr>
-                <tr><td>Textbooks and other class supplies (4%)</td><td>$70.00</td></tr>
-                <tr><td>Cell phone (basic charges) (3%)</td><td>$60.00</td></tr>
-                <tr><td>Cable and Internet (2.5%)</td><td>$50.00</td></tr>
-                <tr><td>Car insurance ($600 divided by 12 months) (2.5%)</td><td>$50.00</td></tr>
-                <tr><td>Savings (2.5%)</td><td>$50.00</td></tr>
-                <tr><td>Dining Out (2.5%)</td><td>$50.00</td></tr>
-                <tr><td>Clothing (2.5%)</td><td>$50.00</td></tr>
-                <tr><td>Car maintenance and repairs ($480 divided by 12 months) (2%)</td><td>$40.00</td></tr>
-                <tr><td>Medical (2%)</td><td>$40.00</td></tr>
-                <tr><td>Electricity (2%)</td><td>$35.00</td></tr>
-                <tr><td>Credit card monthly payment (1%)</td><td>$25.00</td></tr>
-                <tr><td>Gas and water (1%)</td><td>$22.00</td></tr>
-                <tr><td>Parking fee ($84 divided by 12) (0.5%)</td><td>$7.00</td></tr>
-            </tbody>
-            <tfoot>
-                <tr class="bold-row"><td>Total Typical Expenses:</td><td>$1874.00</td></tr>
-            </tfoot>
-        </table>
+        <div class="table-wrapper">
+            <h2>Typical Expenses</h2>
+            <table id="typicalExpenses">
+                <thead>
+                    <tr><th>Category</th><th>Amount ($)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Rent or dorm fee (25-30%)</td><td>$500.00</td></tr>
+                    <tr><td>Groceries (10-15%)</td><td>$250.00</td></tr>
+                    <tr><td>Loan Repayments (10-15%)</td><td>$250.00</td></tr>
+                    <tr><td>Car loan payment (5-10%)</td><td>$125.00</td></tr>
+                    <tr><td>Entertainment (5%)</td><td>$100.00</td></tr>
+                    <tr><td>Transportation (5%)</td><td>$100.00</td></tr>
+                    <tr><td>Textbooks and other class supplies (4%)</td><td>$70.00</td></tr>
+                    <tr><td>Cell phone (basic charges) (3%)</td><td>$60.00</td></tr>
+                    <tr><td>Cable and Internet (2.5%)</td><td>$50.00</td></tr>
+                    <tr><td>Car insurance ($600 divided by 12 months) (2.5%)</td><td>$50.00</td></tr>
+                    <tr><td>Savings (2.5%)</td><td>$50.00</td></tr>
+                    <tr><td>Dining Out (2.5%)</td><td>$50.00</td></tr>
+                    <tr><td>Clothing (2.5%)</td><td>$50.00</td></tr>
+                    <tr><td>Car maintenance and repairs ($480 divided by 12 months) (2%)</td><td>$40.00</td></tr>
+                    <tr><td>Medical (2%)</td><td>$40.00</td></tr>
+                    <tr><td>Electricity (2%)</td><td>$35.00</td></tr>
+                    <tr><td>Credit card monthly payment (1%)</td><td>$25.00</td></tr>
+                    <tr><td>Gas and water (1%)</td><td>$22.00</td></tr>
+                    <tr><td>Parking fee ($84 divided by 12) (0.5%)</td><td>$7.00</td></tr>
+                </tbody>
+                <tfoot>
+                    <tr class="bold-row"><td>Total Typical Expenses:</td><td>$1874.00</td></tr>
+                </tfoot>
+            </table>
+        </div>
 
-        <table id="userExpenses">
-            <thead>
-                <tr><th>Category</th><th>Amount ($)</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>Rent or dorm fee</td><td><input type="number" id="userRent" oninput="updateCalculations()"></td></tr>
-                <tr><td>Groceries</td><td><input type="number" id="userGroceries" oninput="updateCalculations()"></td></tr>
-                <tr><td>Loan Repayments</td><td><input type="number" id="userLoan" oninput="updateCalculations()"></td></tr>
-                <tr><td>Car loan payment</td><td><input type="number" id="userCarLoan" oninput="updateCalculations()"></td></tr>
-                <tr><td>Entertainment</td><td><input type="number" id="userEntertainment" oninput="updateCalculations()"></td></tr>
-                <tr><td>Transportation</td><td><input type="number" id="userTransportation" oninput="updateCalculations()"></td></tr>
-                <tr><td>Textbooks and other class supplies</td><td><input type="number" id="userTextbooks" oninput="updateCalculations()"></td></tr>
-                <tr><td>Cell phone</td><td><input type="number" id="userCellPhone" oninput="updateCalculations()"></td></tr>
-                <tr><td>Cable and Internet</td><td><input type="number" id="userCable" oninput="updateCalculations()"></td></tr>
-                <tr><td>Car insurance</td><td><input type="number" id="userCarInsurance" oninput="updateCalculations()"></td></tr>
-                <tr><td>Savings</td><td><input type="number" id="userSavings" oninput="updateCalculations()"></td></tr>
-                <tr><td>Dining Out</td><td><input type="number" id="userDiningOut" oninput="updateCalculations()"></td></tr>
-                <tr><td>Clothing</td><td><input type="number" id="userClothing" oninput="updateCalculations()"></td></tr>
-                <tr><td>Car maintenance and repairs</td><td><input type="number" id="userCarMaintenance" oninput="updateCalculations()"></td></tr>
-                <tr><td>Medical</td><td><input type="number" id="userMedical" oninput="updateCalculations()"></td></tr>
-                <tr><td>Electricity</td><td><input type="number" id="userElectricity" oninput="updateCalculations()"></td></tr>
-                <tr><td>Credit card monthly payment</td><td><input type="number" id="userCreditCard" oninput="updateCalculations()"></td></tr>
-                <tr><td>Gas and water</td><td><input type="number" id="userGas" oninput="updateCalculations()"></td></tr>
-                <tr><td>Parking fee</td><td><input type="number" id="userParking" oninput="updateCalculations()"></td></tr>
-            </tbody>
-            <tfoot>
-                <tr class="bold-row"><td>Total Spent</td><td id="totalSpent">$0.00</td></tr>
-                <tr class="remaining-balance"><td>Remaining Balance</td><td id="remainingBalance">$0.00</td></tr>
-            </tfoot>
-        </table>
+        <div class="table-wrapper">
+            <h2>Your Monthly Expenses</h2>
+            <table id="userExpenses">
+                <thead>
+                    <tr><th>Category</th><th>Amount ($)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Rent or dorm fee</td><td><input type="number" id="userRent" oninput="updateCalculations()"></td></tr>
+                    <tr><td>Groceries</td><td><input type="number" id="userGroceries" oninput="updateCalculations()"></td></tr>
+                    <tr><td>Loan Repayments</td><td><input type="number" id="userLoan" oninput="updateCalculations()"></td></tr>
+                    <tr><td>Car loan payment</td><td><input type="number" id="userCarLoan" oninput="updateCalculations()"></td></tr>
+                    <tr><td>Entertainment</td><td><input type="number" id="userEntertainment" oninput="updateCalculations()"></td></tr>
+                    <tr><td>Transportation</td><td><input type="number" id="userTransportation" oninput="updateCalculations()"></td></tr>
+                    <tr><td>Textbooks and other class supplies</td><td><input type="number" id="userTextbooks" oninput="updateCalculations()"></td></tr>
+                    <tr><td>Cell phone</td><td><input type="number" id="userCellPhone" oninput="updateCalculations()"></td></tr>
+                    <tr><td>Cable and Internet</td><td><input type="number" id="userCable" oninput="updateCalculations()"></td></tr>
+                    <tr><td>Car insurance</td><td><input type="number" id="userCarInsurance" oninput="updateCalculations()"></td></tr>
+                    <tr><td>Savings</td><td><input type="number" id="userSavings" oninput="updateCalculations()"></td></tr>
+                    <tr><td>Dining Out</td><td><input type="number" id="userDiningOut" oninput="updateCalculations()"></td></tr>
+                    <tr><td>Clothing</td><td><input type="number" id="userClothing" oninput="updateCalculations()"></td></tr>
+                    <tr><td>Car maintenance and repairs</td><td><input type="number" id="userCarMaintenance" oninput="updateCalculations()"></td></tr>
+                    <tr><td>Medical</td><td><input type="number" id="userMedical" oninput="updateCalculations()"></td></tr>
+                    <tr><td>Electricity</td><td><input type="number" id="userElectricity" oninput="updateCalculations()"></td></tr>
+                    <tr><td>Credit card monthly payment</td><td><input type="number" id="userCreditCard" oninput="updateCalculations()"></td></tr>
+                    <tr><td>Gas and water</td><td><input type="number" id="userGas" oninput="updateCalculations()"></td></tr>
+                    <tr><td>Parking fee</td><td><input type="number" id="userParking" oninput="updateCalculations()"></td></tr>
+                </tbody>
+                <tfoot>
+                    <tr class="bold-row"><td>Total Spent</td><td id="totalSpent">$0.00</td></tr>
+                    <tr class="remaining-balance"><td>Remaining Balance</td><td id="remainingBalance">$0.00</td></tr>
+                </tfoot>
+            </table>
+        </div>
     </div>
 
     <h2>Spending Breakdown</h2>
@@ -151,7 +160,7 @@
     <footer>
         Source: <a href="https://studentaid.gov/resources/prepare-for-college/students/budgeting/creating-your-budget">Federal Student Aid</a>
         <p>Made by: Rithul Dhanekula</p>
-      </footer>
+    </footer>
 
     <script>
         function updateCalculations() {
@@ -165,18 +174,9 @@
                 "userGas", "userParking"
             ];
 
-            categories.forEach(id => {
-                totalSpent += parseFloat(document.getElementById(id).value) || 0;
-            });
-
-            const remainingBalance = income - totalSpent;
-
-            document.getElementById("totalSpent").textContent = `$${totalSpent.toFixed(2)}`;
-            document.getElementById("remainingBalance").textContent = `$${remainingBalance.toFixed(2)}`;
-
             const breakdownTable = document.getElementById("spendingBreakdown").getElementsByTagName("tbody")[0];
             breakdownTable.innerHTML = '';
-
+            
             categories.forEach(id => {
                 const category = document.querySelector(`#${id}`).parentNode.previousElementSibling.textContent.split('(')[0].trim();
                 const amount = parseFloat(document.getElementById(id).value) || 0;
@@ -184,7 +184,12 @@
                 const row = document.createElement("tr");
                 row.innerHTML = `<td>${category}</td><td>${percentage.toFixed(2)}%</td>`;
                 breakdownTable.appendChild(row);
+                totalSpent += amount;
             });
+
+            const remainingBalance = income - totalSpent;
+            document.getElementById("totalSpent").textContent = `$${totalSpent.toFixed(2)}`;
+            document.getElementById("remainingBalance").textContent = `$${remainingBalance.toFixed(2)}`;
         }
     </script>
 </body>
